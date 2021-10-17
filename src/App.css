@@ -1,5 +1,10 @@
 .App {
+  height: 101vh;
   text-align: center;
+  background-image: url(https://cdn.axieinfinity.com/landing-page/_next/static/images/cloud-ring-b9996e3e8fe9b463920384977b0d854c@1x.webp); 
+  background-size: 100%; 
+  /* transform-origin: 50% 20%; 
+  transform: translate(-50%, 0%); */
 }
 
 .App-header {
@@ -17,15 +22,4 @@
   font-size: calc(10px + 2vmin);
   margin-top: -1%;
   color: white;
-}
-
-.style_gradient{
-  background-image:radial-gradient(circle, rgba(25,87,167,1) 24%, rgba(0,125,193,0) 60%)
-}
-
-.style_cloudRing{
-  background-image: url(https://cdn.axieinfinity.com/landing-page/_next/static/images/cloud-ring-b9996e3e8fe9b463920384977b0d854c@1x.webp); 
-  background-size: 110%; 
-  transform-origin: 50% 20%; 
-  transform: translate(-50%, 0%);
 }

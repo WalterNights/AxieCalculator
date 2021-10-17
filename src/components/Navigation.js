@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Navigation.css'
+import './Navigation.css';
 
 class Navigation extends Component {
     render(){
@@ -7,7 +7,7 @@ class Navigation extends Component {
             <nav className="text-center">
                 <h1 className="nav-title">Axies Calculator V 1.0.0</h1>
             </nav>
-        )
+        );
     }
 }
 

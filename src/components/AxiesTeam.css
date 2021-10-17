@@ -1,0 +1,21 @@
+.container-axies .card-header h3{
+    font-family: 'Roboto Slab', serif;
+    color: #462D17;
+}
+
+.App-axie{
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10vw;
+}
+
+.axie-first{
+    background-image: url(../static/axie-plant.png);
+}
+.axie-second{
+    background-image: url(../static/axie-beast.png);
+}
+.axie-last{
+    background-image: url(../static/axie-bird.png);
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './Calculator.css';
 class Calculator extends Component {
     constructor(){
         super();
@@ -70,10 +71,10 @@ class Calculator extends Component {
                     </div>
                     <div className="card-body">
                         <div className="d-flex justify-content-around">
-                            <button className="btn btn-warning" onClick={this.handleEnergyPlus}>+ 1</button>
-                            <button className="btn btn-warning" onClick={this.handleEnergyMinus}>- 1</button>
-                            <button className="btn btn-warning" onClick={this.handleNextRound}>Siguiente Ronda</button>
-                            <button className="btn btn-warning" onClick={this.handleNewRound}>Nueva Ronda</button>
+                            <button className="btn btn-info text-light" onClick={this.handleEnergyPlus}>+ 1</button>
+                            <button className="btn btn-info text-light" onClick={this.handleEnergyMinus}>- 1</button>
+                            <button className="btn btn-info text-light" onClick={this.handleNextRound}>Siguiente Ronda</button>
+                            <button className="btn btn-info text-light" onClick={this.handleNewRound}>Nueva Ronda</button>
                         </div>
                     </div>
                     <div className="card-footer">
@@ -119,7 +120,7 @@ class Calculator extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
