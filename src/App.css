@@ -2,37 +2,30 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-image: url("https://cdn.axieinfinity.com/landing-page/_next/static/images/navbar-ccacca9c656f799b3a24455d53269b60@1x.webp");
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  background-size: 1440px 64px;
+  height: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  margin-top: -1%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.style_gradient{
+  background-image:radial-gradient(circle, rgba(25,87,167,1) 24%, rgba(0,125,193,0) 60%)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.style_cloudRing{
+  background-image: url(https://cdn.axieinfinity.com/landing-page/_next/static/images/cloud-ring-b9996e3e8fe9b463920384977b0d854c@1x.webp); 
+  background-size: 110%; 
+  transform-origin: 50% 20%; 
+  transform: translate(-50%, 0%);
 }

@@ -1,4 +1,12 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: #007DC1;
+  background-image:radial-gradient(circle, rgba(25,87,167,1) 24%, rgba(0,125,193,0) 60%);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
