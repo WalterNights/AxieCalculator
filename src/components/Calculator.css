@@ -1,6 +1,10 @@
+.calculator-container .card{
+    background-color: #462D17 !important;
+}
+
 .calculator-container .card-header h3{
     font-family: 'Roboto Slab', serif;
-    color: #462D17;
+    color: wheat;
 }
 
 .calculator-container .card-body button,
@@ -8,6 +12,7 @@
 .calculator-container .card-footer option{
     font-family: 'Roboto Slab', serif;
 }
+.calculator-container .card-body button,
 .calculator-container .card-footer select,
 .calculator-container .card-footer option{
     color: #462D17;
