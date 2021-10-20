@@ -1,5 +1,25 @@
 .nav-title {
     font-family: 'Roboto Slab', serif;
-    font-size: 1.4vw;
     padding-bottom: 3%;
 }
+
+/*======================= media_query =======================*/
+@media (max-width: 500px) {
+    .nav-title {font-size: 4.4vw;}
+  }
+  @media (min-width: 500px) {
+    .nav-title {font-size: 4.4vw;}
+  }
+  @media (min-width: 768px) {
+    .nav-title {font-size: 3vw;}
+  }
+  @media (min-width: 992px) {
+    .nav-title {font-size: 2vw;}
+  }
+  @media (min-width: 1200px) {
+  
+  }
+  @media (min-width: 1400px) {
+    .nav-title {font-size: 1.5vw;}
+  }
+  /*======================= Media Query =======================*/

@@ -18,3 +18,56 @@
     color: #462D17;
     background-color: wheat;
 }
+
+/*======================= media_query =======================*/
+@media (max-width: 500px) {
+    .calculator-container,
+    .card-axies{width: 90vw;}
+
+    .App-axie{height: 25vw;}
+
+    .card-axies{margin-bottom: 5%;}
+}
+@media (min-width: 500px) {
+    .calculator-container,
+    .card-axies{width: 90vw;}
+
+    .App-axie{height: 25vw;}
+
+    .card-axies{margin-bottom: 5%;}
+}
+@media (min-width: 768px) {
+    .calculator-container,
+    .card-axies{width: 60vw;}
+    
+}
+@media (min-width: 992px) {
+    .calculator-container,
+    .card-axies{width: 45vw;}
+}
+@media (min-width: 1200px) {
+    .calculator-container,
+    .card-axies{width: 30vw;}
+
+    .calculator-container .card-body button,
+    .calculator-container .card-footer select{
+        font-size:1vw !important;
+    }
+
+    .container-axies{width: 100vw;}
+
+    .App-axie{height: 15vw;}
+}
+@media (min-width: 1400px) {
+    .calculator-container,
+    .card-axies{width: 28vw;}
+
+    .calculator-container{margin-top: -1%;}
+
+    .container-axies{
+        width: 95vw;
+        height: 21vw;
+    }
+    .App-axie{height: 9vw;}
+}
+/*======================= Media Query =======================*/

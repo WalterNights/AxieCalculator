@@ -13,13 +13,51 @@
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: contain;
-  background-size: 1440px 64px;
-  height: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  margin-top: -1%;
   color: white;
 }
+
+/*======================= media_query =======================*/
+@media (max-width: 500px) {
+  .App-header {
+    background-size: 350% 80%;
+    height: 15vw;
+    margin-top: -1.5%;
+  }
+}
+@media (min-width: 500px) {
+  .App-header {
+    background-size: 350% 80%;
+    height: 20vw;
+    margin-top: -2%;
+  }
+}
+@media (min-width: 768px) {
+  .App-header {
+    background-size: 100% 45%;
+    height: 20vw;
+    margin-top: -6%;
+  }
+}
+@media (min-width: 992px) {
+  .App-header {
+    background-size: 100% 35%;
+    height: 20vw;
+    margin-top: -7%;
+  }
+}
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 1400px) {
+  .App-header {
+    background-size: 85% 80%;
+    height: 4vw;
+    margin-top: -.5%;
+  }
+}
+/*======================= Media Query =======================*/

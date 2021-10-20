@@ -37,6 +37,7 @@ export default class Calculator extends Component {
         this.state = {
             round: 1,
             energy: 3,
+            cards: 6,
             axieOne: 'Axie Uno',
             axieTwo: 'Axie Dos',
             axieThree: 'Axie Tres'
@@ -46,6 +47,8 @@ export default class Calculator extends Component {
         this.handleNextRound = this.handleNextRound.bind(this)
         this.handleNewRound = this.handleNewRound.bind(this)
         this.handleAxieChosen = this.handleAxieChosen.bind(this)
+        this.handleCardsMinus = this.handleCardsMinus.bind(this)
+        this.handleCardsPlus = this.handleCardsPlus.bind(this)
     }
     handleEnergyMinus(e) {
         const energy = this.state.energy;
@@ -65,9 +68,29 @@ export default class Calculator extends Component {
             })
         }
     }
+    handleCardsMinus(e) {
+        const cards = this.state.cards;
+        const cardsMinus = this.state.cards - 1
+        if(cards > 0){
+            this.setState({
+                cards: + cardsMinus
+            })
+        }
+    }
+    handleCardsPlus(e) {
+        const cards = this.state.cards;
+        const cardsPlus = this.state.cards + 1
+        if(cards < 32){
+            this.setState({
+                cards: + cardsPlus
+            })
+        }
+    }
     handleNextRound() {
         const energy = this.state.energy;
+        const cards = this.state.cards;
         const nextRound = this.state.round + 1
+        let nextCards;
         let nextEnergy;
         if(energy < 10){
             if(energy === 9){
@@ -78,17 +101,31 @@ export default class Calculator extends Component {
         }else{
             nextEnergy = 10
         }
+        if(cards < 32){
+            if(cards === 30){
+                nextCards = this.state.cards + 2
+            }else if(cards === 31){
+                nextCards = this.state.cards + 1
+            }else{
+                nextCards = this.state.cards + 3
+            }
+        }else{
+            nextCards = 32
+        }
         this.setState({
             round: + nextRound,
-            energy: + nextEnergy
+            energy: + nextEnergy,
+            cards: + nextCards
         })
     }
     handleNewRound() {
         const nextRound = 1
         const nextEnergy = 3
+        const nextCards = 6
         this.setState({
             round: + nextRound,
-            energy: + nextEnergy
+            energy: + nextEnergy,
+            cards: + nextCards
         })
     }
     handleAxieChosen(e){
@@ -109,13 +146,14 @@ export default class Calculator extends Component {
     render() {
         return (
             <div className="col-12 d-flex flex-column justify-content-center align-items-center">
-                <div className="calculator-container col-lg-4 col-xxl-3">
+                <div className="calculator-container">
                     <div className="card">
                         <div className="card-header">
                             <div className="">
                                 <h3>
                                     Ronda <span className="text-warning">{this.state.round}</span> -
-                                    Energia <span className="text-warning">{this.state.energy}/10</span>
+                                    Energia <span className="text-warning">{this.state.energy}/10</span> -
+                                    Cartas <span className="text-warning">{this.state.cards}</span>
                                 </h3>
                             </div>
                         </div>
@@ -125,6 +163,10 @@ export default class Calculator extends Component {
                                 <button className="btn" onClick={this.handleEnergyPlus}>+ 1</button>
                                 <button className="btn" onClick={this.handleNextRound}>Siguiente Ronda</button>
                                 <button className="btn" onClick={this.handleNewRound}>Nueva Ronda</button>
+                            </div>
+                            <div className="d-flex justify-content-evenly mt-2">
+                                <button className="btn" onClick={this.handleCardsMinus}>- 1 Carta</button>
+                                <button className="btn" onClick={this.handleCardsPlus}>+ 1 Carta</button>
                             </div>
                         </div>
                         <div className="card-footer">
@@ -173,8 +215,8 @@ export default class Calculator extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-axies col-12 d-flex justify-content-around mt-5">
-                    <div className="col-3">
+                <div className="container-axies d-xl-flex justify-content-around  mt-5">
+                    <div className="card-axies">
                         <div className="card">
                             <div className="card-header">
                                 <h3>{this.state.axieOne}</h3>
@@ -190,7 +232,7 @@ export default class Calculator extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="card-axies">
                         <div className="card">
                             <div className="card-header">
                                 <h3>{this.state.axieTwo}</h3>
@@ -206,7 +248,7 @@ export default class Calculator extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="card-axies">
                         <div className="card">
                             <div className="card-header">
                                 <h3>{this.state.axieThree}</h3>
