@@ -6,6 +6,7 @@
     font-family: 'Roboto Slab', serif;
     color: wheat;
     cursor: default;
+    font-size: 1.4rem !important;
 }
 
 .calculator-section .card-body button,
@@ -88,7 +89,7 @@
 
     .container-axies{
         width: 95vw;
-        height: 21vw;
+        height: 19vw;
     }
 
     .App-axie{height: 9vw;}

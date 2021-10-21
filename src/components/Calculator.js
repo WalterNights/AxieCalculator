@@ -265,7 +265,7 @@ export default class Calculator extends Component {
                         {axiesCardsRight}
                     </section>
                 </div>
-                <div className="container-axies d-xl-flex justify-content-around  mt-5">
+                <div className="container-axies d-xl-flex justify-content-around  mt-4">
                     <div className="card-axies">
                         <div className="card">
                             <div className="card-header">
