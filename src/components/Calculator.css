@@ -5,6 +5,7 @@
 .calculator-section .card-header h3{
     font-family: 'Roboto Slab', serif;
     color: wheat;
+    cursor: default;
 }
 
 .calculator-section .card-body button,

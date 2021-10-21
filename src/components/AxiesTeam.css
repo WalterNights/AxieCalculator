@@ -5,6 +5,7 @@
 .container-axies .card-header h3{
     font-family: 'Roboto Slab', serif;
     color: wheat;
+    cursor: default;
 }
 
 .App-axie{

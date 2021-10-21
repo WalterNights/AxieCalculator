@@ -1,6 +1,6 @@
 .nav-title {
     font-family: 'Roboto Slab', serif;
-    padding-bottom: 3%;
+    cursor: default;
 }
 
 /*======================= media_query =======================*/
@@ -21,5 +21,11 @@
   }
   @media (min-width: 1400px) {
     .nav-title {font-size: 1.5vw;}
+    .container-nav nav p{
+        font-family: 'Roboto Slab', serif;
+        font-size: .8vw;
+        padding-top: 1%;
+        cursor: default;
+    }
   }
   /*======================= Media Query =======================*/
