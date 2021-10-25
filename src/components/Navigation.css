@@ -5,13 +5,25 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
-    .nav-title {font-size: 4.4vw;}
+    .nav-title {font-size: 3vw;}
+    .container-nav nav p{
+      font-family: 'Roboto Slab', serif;
+      font-size: 2vw;
+      padding-top: 1%;
+      cursor: default;
+  }
   }
   @media (min-width: 500px) {
-    .nav-title {font-size: 4.4vw;}
+    .nav-title {font-size: 3vw;}
+    .container-nav nav p{
+      font-family: 'Roboto Slab', serif;
+      font-size: 2vw;
+      padding-top: 1%;
+      cursor: default;
+  }
   }
   @media (min-width: 768px) {
-    .nav-title {font-size: 3vw;}
+    .nav-title {font-size: 2vw;}
   }
   @media (min-width: 992px) {
     .nav-title {font-size: 2vw;}
@@ -22,10 +34,8 @@
   @media (min-width: 1400px) {
     .nav-title {font-size: 1.5vw;}
     .container-nav nav p{
-        font-family: 'Roboto Slab', serif;
         font-size: .8vw;
         padding-top: 1%;
-        cursor: default;
     }
   }
   /*======================= Media Query =======================*/

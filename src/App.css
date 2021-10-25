@@ -1,10 +1,10 @@
 .App {
-  height: 101vh;
+  height: 100vh;
   text-align: center;
   background-image: url(https://cdn.axieinfinity.com/landing-page/_next/static/images/cloud-ring-b9996e3e8fe9b463920384977b0d854c@1x.webp); 
-  background-size: 100%; 
-  /* transform-origin: 50% 20%; 
-  transform: translate(-50%, 0%); */
+  background-size: 100%;
+  background-position: center; 
+  background-repeat: no-repeat;
 }
 
 .App-header {
@@ -23,6 +23,8 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
+  .App {background-size: 250% 110%;}
+
   .App-header {
     background-size: 350% 80%;
     height: 15vw;
@@ -30,6 +32,8 @@
   }
 }
 @media (min-width: 500px) {
+  .App {background-size: 250% 110%;}
+
   .App-header {
     background-size: 350% 80%;
     height: 20vw;
@@ -37,21 +41,25 @@
   }
 }
 @media (min-width: 768px) {
+  .App {background-size: 150% 110%;}
+
   .App-header {
-    background-size: 100% 45%;
-    height: 20vw;
-    margin-top: -6%;
+    background-size: 100%;
+    height: 4.5vw;
+    margin-top: 0%;
   }
 }
 @media (min-width: 992px) {
-  .App-header {
+  .App {background-size: 100%;}
+  
+  /* .App-header {
     background-size: 100% 35%;
     height: 20vw;
     margin-top: -7%;
-  }
+  } */
 }
 @media (min-width: 1200px) {
-
+  
 }
 @media (min-width: 1400px) {
   .App-header {
