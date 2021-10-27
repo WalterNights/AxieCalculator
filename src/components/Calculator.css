@@ -2,27 +2,43 @@
     background-color: #462D17 !important;
 }
 
-.calculator-section .card-header h3{
+.card-body-content,
+.card-footer-content{
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding-bottom: 2%;
+}
+
+.calculator-section .card-header h3,
+.calculator-section .card-footer h3{
     font-family: 'Roboto Slab', serif;
     color: wheat;
     cursor: default;
-    font-size: 1.2rem !important;
 }
 
 .calculator-section .card-body button,
-.calculator-section .card-footer select,
-.calculator-section .card-footer option{
+.calculator-section .card-footer{
     font-family: 'Roboto Slab', serif;
 }
+
 .calculator-section .card-body button,
-.calculator-section .card-footer select,
-.calculator-section .card-footer option{
+.calculator-section .card-footer button{
     color: #462D17;
     background-color: wheat;
 }
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
+    .card-body-content,
+    .card-footer-content{height:20vw;}
+
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 2.9vw !important;}
+
     .calculator-section,
     .card-axies{width: 90vw;}
 
@@ -39,9 +55,21 @@
     .calculator-section .card-body img {
         width: 5vw;
         height: 5vw;
+    }
+
+    .calculator-section .card-footer img {
+        width: 6.5vw;
+        height: 6.5vw;
     }
 }
 @media (min-width: 500px) {
+    .card-body-content,
+    .card-footer-content{height:20vw;}
+
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 2.9vw !important;}
+
     .calculator-section,
     .card-axies{width: 90vw;}
 
@@ -59,8 +87,20 @@
         width: 5vw;
         height: 5vw;
     }
+
+    .calculator-section .card-footer img {
+        width: 6.5vw;
+        height: 6.5vw;
+    }
 }
 @media (min-width: 768px) {
+    .card-body-content,
+    .card-footer-content{height:15vw;}
+
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 2vw !important;}
+
     .calculator-section,
     .card-axies{width: 60vw;}
 
@@ -74,9 +114,21 @@
         width: 2.5vw;
         height: 2.5vw;
     }
+
+    .calculator-section .card-footer img {
+        width: 4.5vw;
+        height: 4.5vw;
+    }
     
 }
 @media (min-width: 992px) {
+    .card-body-content,
+    .card-footer-content{height:10vw;}
+
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 1.5vw !important;}
+
     .calculator-section,
     .card-axies{width: 45vw;}
 
@@ -84,8 +136,17 @@
     .calculator-section .card-footer select{
         font-size:1.4vw !important;
     }
+
+    .calculator-section .card-footer img {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
 }
 @media (min-width: 1200px) {
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 1.1vw !important;}
+
     .calculator-section,
     .card-axies{width: 35vw;}
 
@@ -108,8 +169,20 @@
         width: 2vw;
         height: 2vw;
     }
+
+    .calculator-section .card-footer img {
+        width: 2.5vw;
+        height: 2.5vw;
+    }
 }
 @media (min-width: 1400px) {
+    .card-body-content,
+    .card-footer-content{height:6vw;}
+
+    .calculator-section .card-header h3,
+    .calculator-section .card-body h3,
+    .calculator-section .card-footer h3{font-size: 1vw !important;}
+
     .calculator-section,
     .card-axies{width: 32vw;}
 
@@ -141,6 +214,11 @@
     .calculator-section .card-body img {
         width: 1.8vw;
         height: 1.8vw;
+    }
+
+    .calculator-section .card-footer img {
+        width: 2.2vw;
+        height: 2.2vw;
     }
 }
 /*======================= Media Query =======================*/
