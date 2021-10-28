@@ -211,16 +211,21 @@ export default class Calculator extends Component {
                                     <h3 className="text-warning">Opciones de la Partida</h3>
                                     <div className="d-flex justify-content-between">
                                         <button className="btn" onClick={this.handleNewGame}>Nueva Partida</button>
-                                        <button className="btn" onClick={this.handleNextRound}>Siguiente Ronda</button>
                                         <button className="btn" onClick={this.handleSuccess}>Victoria</button>
                                         <button className="btn" onClick={this.handleLose}>Derrota</button>
                                     </div>
                                 </div>
                                 <div className="card-body-content">
-                                    <h3 className="text-warning">Opciones de Energias y Cartas</h3>
-                                    <div className="d-flex justify-content-between mt-2">
+                                    <h3 className="text-warning">Opciones de la Ronda</h3>
+                                    <div className="d-flex justify-content-between">
                                         <button className="btn" onClick={this.handleEnergyMinus}>- 1 <img src={energyIcon} alt="energy-icon" /></button>
                                         <button className="btn" onClick={this.handleEnergyPlus}>+ 1 <img src={energyIcon} alt="energy-icon" /></button>
+                                        <button className="btn" onClick={this.handleNextRound}>Siguiente Ronda</button>
+                                    </div>
+                                </div>
+                                <div className="card-body-content">
+                                    <h3 className="text-warning">Opciones de Energias y Cartas</h3>
+                                    <div className="d-flex justify-content-between mt-2">
                                         <button className="btn" onClick={this.handleEnergyAndCardMinus}>- 1 <img src={energyIcon} alt="energy-icon" />/<img src={cardIcon} alt="card-icon" /></button>
                                         <button className="btn" onClick={this.handleCardsMinus}>- 1 <img src={cardIcon} alt="card-icon" /></button>
                                         <button className="btn" onClick={this.handleCardsPlus}>+ 1 <img src={cardIcon} alt="card-icon" /></button>

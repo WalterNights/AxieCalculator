@@ -2,7 +2,6 @@ import './App.css';
 
 import Navigation from './components/Navigation'
 import Calculator from './components/Calculator'
-//import AxiesTeam from './components/AxiesTeam'
 
 
 export default function App() {

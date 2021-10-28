@@ -8,16 +8,14 @@
 }
 
 .App-header {
-  background-image: url("https://cdn.axieinfinity.com/landing-page/_next/static/images/navbar-ccacca9c656f799b3a24455d53269b60@1x.webp");
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: contain;
+  /* background: #462D17; */
+  /* width: 70vw; */
+  background: rgba(0, 0, 0, 0.452);
+  margin: 0 auto 5% auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -25,47 +23,25 @@
 @media (max-width: 500px) {
   .App {background-size: 250% 110%;}
 
-  .App-header {
-    background-size: 350% 80%;
-    height: 15vw;
-    margin-top: -1.5%;
-  }
+  .App-header {height: 4vw;}
 }
 @media (min-width: 500px) {
   .App {background-size: 250% 110%;}
 
-  .App-header {
-    background-size: 350% 80%;
-    height: 20vw;
-    margin-top: -2%;
-  }
+  .App-header {height: 10vw;}
 }
 @media (min-width: 768px) {
   .App {background-size: 150% 110%;}
 
-  .App-header {
-    background-size: 100%;
-    height: 4.5vw;
-    margin-top: 0%;
-  }
+  .App-header {height: 8vw;}
 }
 @media (min-width: 992px) {
   .App {background-size: 100%;}
-  
-  /* .App-header {
-    background-size: 100% 35%;
-    height: 20vw;
-    margin-top: -7%;
-  } */
 }
 @media (min-width: 1200px) {
-  
+  .App-header {height: 5vw;}
 }
 @media (min-width: 1400px) {
-  .App-header {
-    background-size: 85% 80%;
-    height: 4vw;
-    margin-top: -.5%;
-  }
+  .App-header {height: 4vw;}
 }
 /*======================= Media Query =======================*/

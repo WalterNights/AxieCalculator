@@ -34,8 +34,8 @@
   @media (min-width: 1400px) {
     .nav-title {font-size: 1.5vw;}
     .container-nav nav p{
-        font-size: .8vw;
-        padding-top: 1%;
+      font-size: .8vw;
+      padding-top: 1%;
     }
   }
   /*======================= Media Query =======================*/
