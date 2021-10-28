@@ -23,12 +23,12 @@
 @media (max-width: 500px) {
   .App {background-size: 250% 110%;}
 
-  .App-header {height: 4vw;}
+  .App-header {height: 12vw;}
 }
 @media (min-width: 500px) {
   .App {background-size: 250% 110%;}
 
-  .App-header {height: 10vw;}
+  .App-header {height: 15vw;}
 }
 @media (min-width: 768px) {
   .App {background-size: 150% 110%;}

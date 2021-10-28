@@ -11,7 +11,7 @@ class Navigation extends Component {
                         <img src={AppLogo} className="me-2" alt="app-logo" />
                         <h1 className="nav-title">Axie Calculator</h1>
                     </div>
-                    <div className="col-xxl-4">
+                    {/* <div className="col-xxl-4">
                         <ul className="d-flex col-12 justify-content-between align-items-center mb-0">
                             <li><a href="/">Guías y Ayudas</a></li>
                             <li><a href="/">Contactanos</a></li>
@@ -20,7 +20,7 @@ class Navigation extends Component {
                     </div>
                     <div className="col-xxl-4">
                         <p>WalterNightsDev</p>
-                    </div>
+                    </div> */}
                 </nav>
             </section>
         );
