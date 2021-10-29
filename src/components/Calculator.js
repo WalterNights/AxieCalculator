@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import ReactTooltip from 'react-tooltip';
 
 import './Calculator.css';
 
 import energyIcon from '../static/icons/energy.png'
 import cardIcon from '../static/icons/card_icon.png'
 import deckIcon from '../static/icons/deck_icon.png'
+
 export default class Calculator extends Component {
     constructor(props) {
         super(props);
@@ -210,9 +212,10 @@ export default class Calculator extends Component {
                                 <div className="card-body-content">
                                     <h3 className="text-warning">Opciones de la Partida</h3>
                                     <div className="d-flex justify-content-between">
-                                        <button className="btn" onClick={this.handleNewGame}>Nueva Partida</button>
-                                        <button className="btn" onClick={this.handleSuccess}>Victoria</button>
-                                        <button className="btn" onClick={this.handleLose}>Derrota</button>
+                                        <button className="btn" data-tip="Reinica todos los valores por defecto" onClick={this.handleNewGame}>Nueva Partida</button>
+                                        <button className="btn" data-tip="Calcula tu indice de victorias y reinica los valores de rondas y energia" onClick={this.handleSuccess}>Victoria</button>
+                                        <button className="btn" data-tip="Calcula tu indice de derrotas y reinica los valores de rondas y energia" onClick={this.handleLose}>Derrota</button>
+                                        <ReactTooltip className='extraClass' place={"bottom"} delayHide={100} backgroundColor={"rgba(0, 0, 0)"} textColor={"wheat"} effect='solid'/>
                                     </div>
                                 </div>
                                 <div className="card-body-content">
