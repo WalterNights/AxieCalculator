@@ -1,7 +1,8 @@
 import './App.css';
 
 import Navigation from './components/Navigation'
-import Calculator from './components/Calculator'
+//import Calculator from './components/Calculator'
+import CalculatorNew from './components/CalculatorNew'
 
 
 export default function App() {
@@ -11,7 +12,8 @@ export default function App() {
         <Navigation />
       </header>
       <div className="col-12 d-flex justify-content-center mt-4">
-        <Calculator />
+        {/* <Calculator /> */}
+        <CalculatorNew/>
       </div>
     </div>
   )

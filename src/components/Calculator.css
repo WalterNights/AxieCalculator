@@ -38,9 +38,10 @@
     .card-body-content,
     .card-footer-content{height:20vw;}
 
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 3.7vw !important;}
+    
     .calculator-section .card-body h3,
-    .calculator-section .card-footer h3{font-size: 2.9vw !important;}
+    .calculator-section .card-footer h3{font-size: 2.8vw !important;}
 
     .calculator-section .card .btn{
         width: 25vw;
@@ -75,9 +76,10 @@
     .card-body-content,
     .card-footer-content{height:20vw;}
 
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 3.7vw !important;}
+    
     .calculator-section .card-body h3,
-    .calculator-section .card-footer h3{font-size: 2.9vw !important;}
+    .calculator-section .card-footer h3{font-size: 2.8vw !important;}
 
     .calculator-section .card .btn{
         width: 25vw;
@@ -112,7 +114,8 @@
     .card-body-content,
     .card-footer-content{height:15vw;}
 
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 2.8vw !important;}
+    
     .calculator-section .card-body h3,
     .calculator-section .card-footer h3{font-size: 2vw !important;}
 
@@ -146,7 +149,8 @@
     .card-body-content,
     .card-footer-content{height:10vw;}
 
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 2.1vw !important;}
+    
     .calculator-section .card-body h3,
     .calculator-section .card-footer h3{font-size: 1.5vw !important;}
 
@@ -170,9 +174,10 @@
     }
 }
 @media (min-width: 1200px) {
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 1.6vw !important;}
+
     .calculator-section .card-body h3,
-    .calculator-section .card-footer h3{font-size: 1.1vw !important;}
+    .calculator-section .card-footer h3{font-size: 1.2vw !important;}
 
     .calculator-section .card .btn{
         width: 10vw;
@@ -212,7 +217,8 @@
     .card-body-content,
     .card-footer-content{height:6vw;}
 
-    .calculator-section .card-header h3,
+    .calculator-section .card-header h3{font-size: 1.5vw !important;}
+
     .calculator-section .card-body h3,
     .calculator-section .card-footer h3{font-size: 1vw !important;}
 
