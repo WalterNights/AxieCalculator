@@ -1,5 +1,15 @@
+.calculator-info{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .calculator-section .card{
     background-color: #462D17 !important;
+}
+
+.calculator-button-advance button{
+    border: none;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 }
 
 .card-body-content,
@@ -15,6 +25,7 @@
 .calculator-section .card .btn:hover{transform: scale(1.03)}
 .calculator-section .card .btn:active{transform: scale(1.05)}
 
+.text-dexcription span,
 .calculator-section .card-header h3,
 .calculator-section .card-footer h3{
     font-family: 'Roboto Slab', serif;
@@ -22,11 +33,13 @@
     cursor: default;
 }
 
+.calculator-button-advance button,
 .calculator-section .card-body button,
 .calculator-section .card-footer{
     font-family: 'Roboto Slab', serif;
 }
 
+.calculator-button-advance button,
 .calculator-section .card-body button,
 .calculator-section .card-footer button{
     color: #462D17;
@@ -35,6 +48,13 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
+    .text-dexcription{
+        height: 10vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{font-size: 2.8vw;}
+
     .card-body-content,
     .card-footer-content{height:20vw;}
 
@@ -73,6 +93,13 @@
     }
 }
 @media (min-width: 500px) {
+    .text-dexcription{
+        height: 10vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{font-size: 2.8vw;}
+
     .card-body-content,
     .card-footer-content{height:20vw;}
 
@@ -111,6 +138,13 @@
     }
 }
 @media (min-width: 768px) {
+    .text-dexcription{
+        height: 8vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{font-size: 2.2vw;}
+
     .card-body-content,
     .card-footer-content{height:15vw;}
 
@@ -146,6 +180,13 @@
     
 }
 @media (min-width: 992px) {
+    .text-dexcription{
+        height: 6vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{font-size: 2vw;}
+
     .card-body-content,
     .card-footer-content{height:10vw;}
 
@@ -174,6 +215,13 @@
     }
 }
 @media (min-width: 1200px) {
+    .text-dexcription{
+        height: 4vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{font-size: 1.5vw;}
+
     .calculator-section .card-header h3{font-size: 1.6vw !important;}
 
     .calculator-section .card-body h3,
@@ -214,6 +262,16 @@
     }
 }
 @media (min-width: 1400px) {
+    .text-dexcription{
+        height: 3.5vw;
+        margin-bottom: 1%;
+    }
+
+    .text-dexcription span{
+       /*  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5); */
+        font-size: 1.2vw;
+    }
+
     .card-body-content,
     .card-footer-content{height:6vw;}
 

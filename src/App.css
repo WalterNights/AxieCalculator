@@ -11,7 +11,7 @@
   /* background: #462D17; */
   /* width: 70vw; */
   background: rgba(0, 0, 0, 0.452);
-  margin: 0 auto 5% auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

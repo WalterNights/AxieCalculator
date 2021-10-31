@@ -11,7 +11,7 @@ export default function App() {
       <header className="App-header">
         <Navigation />
       </header>
-      <div className="col-12 d-flex justify-content-center mt-4">
+      <div className="col-12 d-flex justify-content-center">
         {/* <Calculator /> */}
         <CalculatorNew/>
       </div>
