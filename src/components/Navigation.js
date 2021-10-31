@@ -9,7 +9,7 @@ class Navigation extends Component {
                 <nav className="col-11 col-xxl-10 d-flex justify-content-center align-items-center text-center">
                     <div className="col-xxl-4 d-flex justify-content-center align-items-center">
                         <img src={AppLogo} className="me-2" alt="app-logo" />
-                        <h1 className="nav-title">Axie Calculator</h1>
+                        <h1 className="nav-title d-none">Axie Calculator</h1>
                     </div>
                     {/* <div className="col-xxl-4">
                         <ul className="d-flex col-12 justify-content-between align-items-center mb-0">

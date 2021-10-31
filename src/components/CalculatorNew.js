@@ -6,6 +6,7 @@ import './Calculator.css';
 import energyIcon from '../static/icons/energy.png'
 import cardIcon from '../static/icons/card_icon.png'
 import deckIcon from '../static/icons/deck_icon.png'
+import usedCard from '../static/icons/used_cards.png'
 
 export default function Calculator() {
 
@@ -15,6 +16,7 @@ export default function Calculator() {
         energy: 3,
         cards: 6,
         deck: 24,
+        usedCards: 0,
         win: 0,
         lose: 0,
         percentage: 0,
@@ -29,13 +31,11 @@ export default function Calculator() {
             round,
             energy,
             cards,
-            deck, 
+            deck,
+            usedCards, 
             win,
             lose,
             percentage,
-            ButtonDisableA,
-            ButtonDisableB,
-            ButtonDisableC
         }, setState] = useState(initialState);
 
 
@@ -55,6 +55,7 @@ export default function Calculator() {
         if (cards > 0) {
             setState(prevState => ({...prevState, cards: cards - 1}))
         }
+        setState(prevState => ({...prevState, usedCards: usedCards + 1}))
     }
 
     const handleCardsPlus = () => {
@@ -71,6 +72,7 @@ export default function Calculator() {
         if (energy > 0) {
             setState(prevState => ({...prevState, energy: energy - 1}))
         }
+        setState(prevState => ({...prevState, usedCards: usedCards + 1}))
     }
 
     const handleNextRound = () => {
@@ -95,6 +97,11 @@ export default function Calculator() {
             setState(prevState => ({...prevState, cards: + 30}))
         }
         setState(prevState => ({...prevState, round: round + 1}))
+        if(round === 1){
+            setState(prevState => ({...prevState, deck: deck - 6}))
+        }else{
+            setState(prevState => ({...prevState, deck: deck - 3}))
+        }
     }
 
     const handleNewGame = () => {
@@ -122,19 +129,6 @@ export default function Calculator() {
         setState(prevState => ({...prevState, ButtonDisableB: false}))
         setState(prevState => ({...prevState, ButtonDisableC: false}))
     }
-
-    /* const handleRemoveAxieA = (e) => {
-        setState(prevState => ({...prevState, ButtonDisableA: true}))
-        setState(prevState => ({...prevState, deck: deck - 8}))
-    }
-    const handleRemoveAxieB = (e) => {
-        setState(prevState => ({...prevState, ButtonDisableB: true}))
-        setState(prevState => ({...prevState, deck: deck - 8}));
-    }
-    const handleRemoveAxieC = (e) => {
-        setState(prevState => ({...prevState, ButtonDisableC: true}))
-        setState(prevState => ({...prevState, deck: deck - 8}));
-    } */
     
     useEffect(() => {
         const totalPercentage = (win / (win + lose) * 100).toFixed(1)
@@ -194,17 +188,10 @@ export default function Calculator() {
                         <div className="card-footer">
                             <div>
                                 <h3>
-                                    Mazo <img src={deckIcon} alt="card-icon" /> <span className="text-warning">{deck}</span>
+                                    Cartas en Mano <img src={deckIcon} alt="card-icon" /> <span className="text-warning">{deck}</span> / 
+                                    Cartas Usadas <img src={usedCard} alt="card-icon" /> <span className="text-warning">{usedCards}</span>
                                 </h3>
                             </div>
-                            {/* <div className="card-footer-content">
-                                <h3 className="text-warning">Equipo Enemigo</h3>
-                                <div className="d-flex justify-content-around align-items-center mt-2">
-                                    <button id="A" className="btn" onClick={handleRemoveAxieA} disabled={ButtonDisableA}>Primer Axie</button>
-                                    <button id="B" className="btn" onClick={handleRemoveAxieB} disabled={ButtonDisableB}>Segundo Axie</button>
-                                    <button id="C" className="btn" onClick={handleRemoveAxieC} disabled={ButtonDisableC}>Tercer Axie</button>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </section>
