@@ -97,10 +97,15 @@ export default function Calculator() {
             setState(prevState => ({...prevState, cards: + 30}))
         }
         setState(prevState => ({...prevState, round: round + 1}))
-        if(round === 1){
-            setState(prevState => ({...prevState, deck: deck - 6}))
+        if(deck === 0){
+            setState(prevState => ({...prevState, deck: deck + usedCards}))
+            setState(prevState => ({...prevState, usedCards: 0}))
         }else{
-            setState(prevState => ({...prevState, deck: deck - 3}))
+            if(round === 1){
+                setState(prevState => ({...prevState, deck: deck - 6}))
+            }else{
+                setState(prevState => ({...prevState, deck: deck - 3}))
+            }
         }
     }
 
@@ -188,7 +193,7 @@ export default function Calculator() {
                         <div className="card-footer">
                             <div>
                                 <h3>
-                                    Cartas en Mano <img src={deckIcon} alt="card-icon" /> <span className="text-warning">{deck}</span> / 
+                                    Cartas en el Mazo <img src={deckIcon} alt="card-icon" /> <span className="text-warning">{deck}</span> / 
                                     Cartas Usadas <img src={usedCard} alt="card-icon" /> <span className="text-warning">{usedCards}</span>
                                 </h3>
                             </div>
