@@ -46,6 +46,8 @@
     background-color: wheat;
 }
 
+.btn-simple{width: 100% !important;}
+
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
     .text-dexcription{
@@ -57,6 +59,8 @@
 
     .card-body-content,
     .card-footer-content{height:20vw;}
+
+    .card-body-simple{height: 10vw !important}
 
     .calculator-section .card-header h3{font-size: 3.7vw !important;}
     

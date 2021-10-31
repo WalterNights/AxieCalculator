@@ -37,6 +37,7 @@ export default function Calculator() {
 
     const [style, setStyle] = useState({ display: 'none' });
     const [styleAdvance, setStyleAdvance] = useState({ display: 'flex' });
+    const [styleSimple, setStyleSimple] = useState({ display: 'none' });
     const [infoText, setInfoText] = useState();
     const [buttonText, setButtonText] = useState('Calculadora Simple');
 
@@ -164,9 +165,11 @@ export default function Calculator() {
                                 console.log(styleAdvance.display)
                                 if (styleAdvance.display === 'flex') {
                                     setStyleAdvance({ display: 'none' })
+                                    setStyleSimple({ display: 'flex' })
                                     setButtonText('Calculadora Avanzada')
                                 } else {
                                     setStyleAdvance({ display: 'flex' })
+                                    setStyleSimple({ display: 'none' })
                                     setButtonText('Calculadora Simple')
                                 }
                             }}
@@ -190,6 +193,20 @@ export default function Calculator() {
                             </div>
                         </div>
                         <div className="card-body">
+                            <div className="card-body-content card-body-simple" style={styleSimple}>
+                                <div className="d-flex justify-content-center">
+                                    <button
+                                        className="btn btn-simple"
+                                        onClick={handleNewGame}
+                                        onMouseEnter={e => {
+                                            setStyle({ display: 'block' })
+                                            setInfoText(infoTextNewGame)
+                                        }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                                    >
+                                        Nueva Partida
+                                    </button>
+                                </div>
+                            </div>
                             <div className="card-body-content" style={styleAdvance}>
                                 <h3 className="text-warning">Opciones de la Partida</h3>
                                 <div className="d-flex justify-content-between">
@@ -242,7 +259,7 @@ export default function Calculator() {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <div>
+                            <div className="justify-content-center" style={styleAdvance}>
                                 <h3>
                                     Cartas en el Mazo <img src={deckIcon} alt="card-icon" /> <span className="text-warning">{deck}</span> /
                                     Cartas Usadas <img src={usedCard} alt="card-icon" /> <span className="text-warning">{usedCards}</span>
