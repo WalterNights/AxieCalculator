@@ -7,7 +7,7 @@ import cardIcon from '../static/icons/card_icon.png'
 import deckIcon from '../static/icons/deck_icon.png'
 import usedCard from '../static/icons/used_cards.png'
 
-export default function Calculator() {
+export default function Calculator(props, ref) {
 
     const initialState = {
         round: 1,
@@ -40,8 +40,10 @@ export default function Calculator() {
     const [style, setStyle] = useState({ display: 'none' });
     const [styleAdvance, setStyleAdvance] = useState({ display: 'none' });
     const [infoText, setInfoText] = useState();
-    const [buttonText, setButtonText] = useState('Calculadora Avanzada');
+    const [buttonText, setButtonText] = useState('Calculadora Simple');
 
+    const infoTextChangeAdvance = 'Presiona para ir a la version avanzada de la calculadora';
+    const infoTextChangeSimple = 'Presiona para ir a la version simple de la calculadora';
     const infoTextNewGame = 'Reinica todos los valores por defecto';
     const infoTextVictory = 'Calcula tu indice de victorias y reinica los valores de rondas y energia';
     const infoTextDefeat = 'Calcula tu indice de derrotas y reinica los valores de rondas y energia';
@@ -120,13 +122,13 @@ export default function Calculator() {
     }
 
     const handlePreviwsRound = () => {
-        if(round !== 1){
-            if(energy >= 2){
+        if (round !== 1) {
+            if (energy >= 2) {
                 setState(prevState => ({ ...prevState, energy: energy - 2 }))
             }
             setState(prevState => ({ ...prevState, round: round - 1 }))
         }
-        if(round === 2 && energy === 0){
+        if (round === 2 && energy === 0) {
             setState(prevState => ({ ...prevState, round: 1 }))
             setState(prevState => ({ ...prevState, energy: 3 }))
         }
@@ -180,6 +182,16 @@ export default function Calculator() {
         }
     }, [lose, win])
 
+    const handleChangeCalculator = (ref) => {
+        if (styleAdvance.display === 'flex') {
+            setStyleAdvance({ display: 'none' })
+            setButtonText('Calculadora Simple')
+        } else {
+            setStyleAdvance({ display: 'flex' })
+            setButtonText('Calculadora Avanzada')
+        }
+    }
+
     return (
         <div className="col-12 d-flex flex-column justify-content-center align-items-center">
             <section className="text-dexcription col-12 d-flex justify-content-center align-items-center">
@@ -191,16 +203,18 @@ export default function Calculator() {
                 <div className="calculator-section">
                     <div className="card">
                         <div className="calculator-button-advance">
-                            <button className="col-12" onClick={e => {
-                                console.log(styleAdvance.display)
-                                if (styleAdvance.display === 'flex') {
-                                    setStyleAdvance({ display: 'none' })
-                                    setButtonText('Calculadora Avanzada')
-                                } else {
-                                    setStyleAdvance({ display: 'flex' })
-                                    setButtonText('Calculadora Simple')
-                                }
-                            }}
+                            <button
+                                className="col-12"
+                                onClick={handleChangeCalculator}
+                                onMouseEnter={e => {
+                                    setStyle({ display: 'block' })
+                                    if(styleAdvance.display === 'none'){
+                                        setInfoText(infoTextChangeAdvance)
+                                    }
+                                    if(styleAdvance.display === 'flex'){
+                                        setInfoText(infoTextChangeSimple)
+                                    }
+                                }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
                             >
                                 {buttonText}
                             </button>
