@@ -127,10 +127,14 @@ export default function Calculator(props, ref) {
                 setState(prevState => ({ ...prevState, energy: energy - 2 }))
             }
             setState(prevState => ({ ...prevState, round: round - 1 }))
+            setState(prevState => ({ ...prevState, cards: cards - 2 }))
+            setState(prevState => ({ ...prevState, deck: deck + 3 }))
         }
         if (round === 2 && energy === 0) {
             setState(prevState => ({ ...prevState, round: 1 }))
             setState(prevState => ({ ...prevState, energy: 3 }))
+            setState(prevState => ({ ...prevState, cards: 6 }))
+            setState(prevState => ({ ...prevState, deck: 24 }))
         }
     }
 
