@@ -6,6 +6,13 @@
     background-color: #462D17 !important;
 }
 
+.round-back{
+    background-color: wheat !important;
+    color: #462D17;
+    border: none;
+    border-radius: 100%;
+}
+
 .calculator-button-advance button{
     border: none;
     border-top-left-radius: 0.25rem;
@@ -55,6 +62,14 @@
         margin-bottom: 1%;
     }
 
+    .round-back{
+        left: -2%;
+        width: 6vw !important;
+        height: 6vw !important;
+    }
+
+    .round-back .material-icons{font-size: 18px !important;}
+
     .text-dexcription span{font-size: 2.8vw;}
 
     .card-body-content,
@@ -72,6 +87,8 @@
         height: 10vw;
         padding: 0 !important
     }
+
+    .btn-large-card-energy{width: 38.5vw !important;}
 
     .calculator-section,
     .card-axies{width: 90vw;}
@@ -102,6 +119,12 @@
         margin-bottom: 1%;
     }
 
+    .round-back{
+        left: -2%;
+        width: 6vw !important;
+        height: 6vw !important;
+    }
+
     .text-dexcription span{font-size: 2.8vw;}
 
     .card-body-content,
@@ -117,6 +140,8 @@
         height: 10vw;
         padding: 0 !important
     }
+
+    .btn-large-card-energy{width: 40vw !important;}
 
     .calculator-section,
     .card-axies{width: 90vw;}
@@ -143,8 +168,13 @@
 }
 @media (min-width: 768px) {
     .text-dexcription{
-        height: 8vw;
+        height: 4vw;
         margin-bottom: 1%;
+    }
+
+    .round-back{
+        width: 4vw !important;
+        height: 4vw !important;
     }
 
     .text-dexcription span{font-size: 2.2vw;}
@@ -162,6 +192,8 @@
         height: 7vw;
         padding: 0 !important
     }
+
+    .btn-large-card-energy{width: 26.5vw !important;}
 
     .calculator-section,
     .card-axies{width: 60vw;}
@@ -185,8 +217,13 @@
 }
 @media (min-width: 992px) {
     .text-dexcription{
-        height: 6vw;
+        height: 5vw;
         margin-bottom: 1%;
+    }
+
+    .round-back{
+        width: 3vw !important;
+        height: 3vw !important;
     }
 
     .text-dexcription span{font-size: 2vw;}
@@ -205,6 +242,8 @@
         padding: 0 !important
     }
 
+    .btn-large-card-energy{width: 20.1vw !important;}
+
     .calculator-section,
     .card-axies{width: 45vw;}
 
@@ -220,8 +259,13 @@
 }
 @media (min-width: 1200px) {
     .text-dexcription{
-        height: 4vw;
+        height: 3vw;
         margin-bottom: 1%;
+    }
+
+    .round-back{
+        width: 2.5vw !important;
+        height: 2.5vw !important;
     }
 
     .text-dexcription span{font-size: 1.5vw;}
@@ -236,6 +280,8 @@
         height: 4vw;
         padding: 0 !important
     }
+
+    .btn-large-card-energy{width: 15.5vw !important;}
 
     .calculator-section,
     .card-axies{width: 35vw;}
@@ -267,8 +313,13 @@
 }
 @media (min-width: 1400px) {
     .text-dexcription{
-        height: 3.5vw;
+        height: 1.9vw;
         margin-bottom: 1%;
+    }
+
+    .round-back{
+        width: 2vw !important;
+        height: 2vw !important;
     }
 
     .text-dexcription span{
@@ -289,6 +340,8 @@
         height: 3vw;
         padding: 0 !important
     }
+
+    .btn-large-card-energy{width: 14.1vw !important;}
 
     .calculator-section,
     .card-axies{width: 32vw;}

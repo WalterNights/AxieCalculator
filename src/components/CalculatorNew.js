@@ -17,6 +17,7 @@ export default function Calculator() {
         usedCards: 0,
         win: 0,
         lose: 0,
+        draw: 0,
         percentage: 0,
         ButtonDisableA: false,
         ButtonDisableB: false,
@@ -32,18 +33,20 @@ export default function Calculator() {
             usedCards,
             win,
             lose,
+            draw,
             percentage,
         }, setState] = useState(initialState);
 
     const [style, setStyle] = useState({ display: 'none' });
-    const [styleAdvance, setStyleAdvance] = useState({ display: 'flex' });
-    const [styleSimple, setStyleSimple] = useState({ display: 'none' });
+    const [styleAdvance, setStyleAdvance] = useState({ display: 'none' });
     const [infoText, setInfoText] = useState();
-    const [buttonText, setButtonText] = useState('Calculadora Simple');
+    const [buttonText, setButtonText] = useState('Calculadora Avanzada');
 
     const infoTextNewGame = 'Reinica todos los valores por defecto';
     const infoTextVictory = 'Calcula tu indice de victorias y reinica los valores de rondas y energia';
     const infoTextDefeat = 'Calcula tu indice de derrotas y reinica los valores de rondas y energia';
+    const infoTextDraw = 'Suma los empates y reinicia los valores de ronda y energia';
+    const infoTextBackRound = 'Devuelve una ronda y resta 2 de energia';
 
 
     const handleEnergyMinus = () => {
@@ -116,6 +119,19 @@ export default function Calculator() {
         }
     }
 
+    const handlePreviwsRound = () => {
+        if(round !== 1){
+            if(energy >= 2){
+                setState(prevState => ({ ...prevState, energy: energy - 2 }))
+            }
+            setState(prevState => ({ ...prevState, round: round - 1 }))
+        }
+        if(round === 2 && energy === 0){
+            setState(prevState => ({ ...prevState, round: 1 }))
+            setState(prevState => ({ ...prevState, energy: 3 }))
+        }
+    }
+
     const handleNewGame = () => {
         setState({ ...initialState })
     }
@@ -144,6 +160,18 @@ export default function Calculator() {
         setState(prevState => ({ ...prevState, ButtonDisableC: false }))
     }
 
+    const handleDraw = () => {
+        setState(prevState => ({ ...prevState, round: 1 }))
+        setState(prevState => ({ ...prevState, energy: 3 }))
+        setState(prevState => ({ ...prevState, cards: 6 }))
+        setState(prevState => ({ ...prevState, deck: 24 }))
+        setState(prevState => ({ ...prevState, usedCards: 0 }))
+        setState(prevState => ({ ...prevState, draw: draw + 1 }))
+        setState(prevState => ({ ...prevState, ButtonDisableA: false }))
+        setState(prevState => ({ ...prevState, ButtonDisableB: false }))
+        setState(prevState => ({ ...prevState, ButtonDisableC: false }))
+    }
+
     useEffect(() => {
         const totalPercentage = (win / (win + lose) * 100).toFixed(1)
         const setPercentage = () => setState(prevState => ({ ...prevState, percentage: totalPercentage }));
@@ -167,11 +195,9 @@ export default function Calculator() {
                                 console.log(styleAdvance.display)
                                 if (styleAdvance.display === 'flex') {
                                     setStyleAdvance({ display: 'none' })
-                                    setStyleSimple({ display: 'flex' })
                                     setButtonText('Calculadora Avanzada')
                                 } else {
                                     setStyleAdvance({ display: 'flex' })
-                                    setStyleSimple({ display: 'none' })
                                     setButtonText('Calculadora Simple')
                                 }
                             }}
@@ -181,21 +207,33 @@ export default function Calculator() {
                         </div>
                         <div className="card-header">
                             <div className="calculator-header">
-                                <h3>
-                                    Ronda <span className="text-warning">{round}</span> -
-                                    Energia <img src={energyIcon} alt="energy-icon" /> <span className="text-warning">{energy}/10</span> -
-                                    Cartas <img src={cardIcon} alt="card-icon" /> <span className="text-warning">{cards}</span>
+                                <h3 className="d-flex justify-content-center align-items-center">
+                                    <button
+                                        className="round-back position-absolute"
+                                        onClick={handlePreviwsRound}
+                                        onMouseEnter={e => {
+                                            setStyle({ display: 'block' })
+                                            setInfoText(infoTextBackRound)
+                                        }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                                    >
+                                        <i className="material-icons mdi mdi-reply">reply</i>
+                                    </button>
+                                    Ronda &nbsp;<span className="text-warning">{round}</span>&nbsp;-&nbsp;
+                                    Energia &nbsp;<img src={energyIcon} alt="energy-icon" />&nbsp;<span className="text-warning">{energy}/10</span>&nbsp;
+                                    <span clasName="flex-row" style={styleAdvance}>
+                                        - Cartas &nbsp;<img src={cardIcon} alt="card-icon" />&nbsp;<span className="text-warning">{cards}</span>
+                                    </span>
                                 </h3>
                             </div>
                             <div className="justify-content-center" style={styleAdvance}>
                                 <h3>
                                     Ratio <span className="text-warning">{percentage}%</span> -
-                                    <span className="text-warning"> Victorias - {win} / Derrotas - {lose}</span>
+                                    <span className="text-warning"> V - {win} / D - {lose} / E - {draw}</span>
                                 </h3>
                             </div>
                         </div>
                         <div className="card-body">
-                            <div className="card-body-content card-body-simple" style={styleSimple}>
+                            <div className="card-body-content card-body-simple">
                                 <div className="d-flex justify-content-center">
                                     <button
                                         className="btn btn-simple"
@@ -212,16 +250,6 @@ export default function Calculator() {
                             <div className="card-body-content" style={styleAdvance}>
                                 <h3 className="text-warning">Opciones de la Partida</h3>
                                 <div className="d-flex justify-content-between">
-                                    <button
-                                        className="btn"
-                                        onClick={handleNewGame}
-                                        onMouseEnter={e => {
-                                            setStyle({ display: 'block' })
-                                            setInfoText(infoTextNewGame)
-                                        }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
-                                    >
-                                        Nueva Partida
-                                    </button>
                                     <button
                                         className="btn"
                                         onClick={handleSuccess}
@@ -241,6 +269,16 @@ export default function Calculator() {
                                     >
                                         Derrota
                                     </button>
+                                    <button
+                                        className="btn"
+                                        onClick={handleDraw}
+                                        onMouseEnter={e => {
+                                            setStyle({ display: 'block' })
+                                            setInfoText(infoTextDraw)
+                                        }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                                    >
+                                        Empate
+                                    </button>
                                 </div>
                             </div>
                             <div className="card-body-content">
@@ -254,9 +292,15 @@ export default function Calculator() {
                             <div className="card-body-content" style={styleAdvance}>
                                 <h3 className="text-warning">Opciones de Energias y Cartas</h3>
                                 <div className="d-flex justify-content-between mt-2">
-                                    <button className="btn" onClick={handleEnergyAndCardMinus}>- 1 <img src={energyIcon} alt="energy-icon" />/<img src={cardIcon} alt="card-icon" /></button>
-                                    <button className="btn" onClick={handleCardsMinus}>- 1 <img src={cardIcon} alt="card-icon" /></button>
-                                    <button className="btn" onClick={handleCardsPlus}>+ 1 <img src={cardIcon} alt="card-icon" /></button>
+                                    <button className="btn btn-large-card-energy" onClick={handleEnergyAndCardMinus}>- 1 <img src={energyIcon} alt="energy-icon" />/ -1 <img src={cardIcon} alt="card-icon" /></button>
+                                    <button className="btn btn-large-card-energy" onClick={handleEnergyAndCardMinus}>+ 1 <img src={energyIcon} alt="energy-icon" />/ -1 <img src={cardIcon} alt="card-icon" /></button>
+                                </div>
+                            </div>
+                            <div className="card-body-content" style={styleAdvance}>
+                                <h3 className="text-warning">Opciones de Cartas</h3>
+                                <div className="d-flex justify-content-between mt-2">
+                                    <button className="btn btn-large-card-energy" onClick={handleCardsMinus}>- 1 <img src={cardIcon} alt="card-icon" /></button>
+                                    <button className="btn btn-large-card-energy" onClick={handleCardsPlus}>+ 1 <img src={cardIcon} alt="card-icon" /></button>
                                 </div>
                             </div>
                         </div>
