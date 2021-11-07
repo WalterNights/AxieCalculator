@@ -40,10 +40,7 @@
     cursor: default;
 }
 
-.calculator-button-advance button{
-    position: absolute;
-    top: -5vw;
-}
+.calculator-button-advance button{position: absolute;}
 
 .calculator-button-advance button,
 .calculator-section .card-body button,
@@ -63,9 +60,15 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
-    .change-simpe{left: 0vw;}
+    .change-simpe{
+        top: -10%;
+        left: 0vw;
+    }
 
-    .change-advance{left: 40vw;}
+    .change-advance{
+        top: -10%;
+        left: 40vw;
+    }
 
     .text-dexcription{
         height: 15vw;
@@ -129,6 +132,16 @@
         margin-bottom: 1%;
     }
 
+    .change-simpe{
+        top: -2.6vh;
+        left: 0vw;
+    }
+    
+    .change-advance{
+        top: -2.6vh;
+        left: 40vw;
+    }
+
     .round-back{
         left: -2%;
         width: 6vw !important;
@@ -178,9 +191,11 @@
 }
 @media (min-width: 768px) {
     .text-dexcription{
-        height: 4vw;
+        height: 10vw;
         margin-bottom: 1%;
     }
+    
+    .change-advance{left: 27vw;}
 
     .round-back{
         width: 4vw !important;
@@ -227,9 +242,11 @@
 }
 @media (min-width: 992px) {
     .text-dexcription{
-        height: 5vw;
+        height: 7vw;
         margin-bottom: 1%;
     }
+    
+    .change-advance{left: 20vw;}
 
     .round-back{
         width: 3vw !important;
@@ -269,9 +286,11 @@
 }
 @media (min-width: 1200px) {
     .text-dexcription{
-        height: 3vw;
+        height: 5.3vw;
         margin-bottom: 1%;
     }
+    
+    .change-advance{left: 16vw;}
 
     .round-back{
         width: 2.5vw !important;
@@ -323,9 +342,11 @@
 }
 @media (min-width: 1400px) {
     .text-dexcription{
-        height: 1.9vw;
-        margin-bottom: 1%;
+        height: 5vw;
+        margin-top: -0.8%;
     }
+
+    .change-advance{left: 14.5vw;}
 
     .round-back{
         width: 2vw !important;

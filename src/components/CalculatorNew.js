@@ -39,7 +39,8 @@ export default function Calculator() {
 
     const [style, setStyle] = useState({ display: 'none' });
     const [styleAdvance, setStyleAdvance] = useState({ display: 'none' });
-    const [styleBackground, setStyleBackground] = useState({ backgroundColor: 'wheat' });
+    const [styleBackgroundS, setStyleBackgroundS] = useState({ backgroundColor: '#a59577' });
+    const [styleBackgroundA, setStyleBackgroundA] = useState({ backgroundColor: 'wheat' });
     const [infoText, setInfoText] = useState();
 
     const infoTextChangeAdvance = 'Presiona para ir a la version avanzada de la calculadora';
@@ -197,12 +198,15 @@ export default function Calculator() {
     }, [lose, win])
 
     const handleChangeCalculatorSimple = () => {
-            setStyleAdvance({ display: 'none' })
+        setStyleAdvance({ display: 'none' })
+        setStyleBackgroundS({ backgroundColor: '#a59577' })
+        setStyleBackgroundA({ backgroundColor: 'wheat' })
     }
-    
+
     const handleChangeCalculatorAdvance = () => {
-            setStyleAdvance({ display: 'flex' })
-        
+        setStyleAdvance({ display: 'flex' })
+        setStyleBackgroundS({ backgroundColor: 'wheat' })
+        setStyleBackgroundA({ backgroundColor: '#a59577' })
     }
 
     return (
@@ -218,7 +222,7 @@ export default function Calculator() {
                         <div className="calculator-button-advance">
                             <button
                                 className="col-5 change-simpe"
-                                style={styleBackground}
+                                style={styleBackgroundS}
                                 onClick={handleChangeCalculatorSimple}
                                 onMouseEnter={e => {
                                     setStyle({ display: 'block' })
@@ -229,7 +233,7 @@ export default function Calculator() {
                             </button>
                             <button
                                 className="col-5 change-advance"
-                                style={styleBackground}
+                                style={styleBackgroundA}
                                 onClick={handleChangeCalculatorAdvance}
                                 onMouseEnter={e => {
                                     setStyle({ display: 'block' })
