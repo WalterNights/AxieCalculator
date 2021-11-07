@@ -135,12 +135,12 @@
     }
 
     .change-simpe{
-        top: -2.6vh;
+        top: -2.5vh;
         left: 0vw;
     }
     
     .change-advance{
-        top: -2.6vh;
+        top: -2.5vh;
         left: 40vw;
     }
 
@@ -196,8 +196,13 @@
         height: 10vw;
         margin-bottom: 1%;
     }
+
+    .change-simpe{top: -2.6vh;}
     
-    .change-advance{left: 27vw;}
+    .change-advance{
+        top: -2.6vh;
+        left: 27vw;
+    }
 
     .round-back{
         width: 4vw !important;
