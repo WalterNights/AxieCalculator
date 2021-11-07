@@ -60,19 +60,21 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
-    .change-simpe{
-        top: -10%;
-        left: 0vw;
-    }
-
-    .change-advance{
-        top: -10%;
-        left: 40vw;
-    }
-
     .text-dexcription{
         height: 15vw;
         margin-bottom: 1%;
+    }
+    
+    .change-simpe{
+        top: -4.4vw;
+        left: 0vw;
+        font-size: 3vw;
+    }
+
+    .change-advance{
+        top: -4.4vw;
+        left: 40vw;
+        font-size: 3vw;
     }
 
     .round-back{
