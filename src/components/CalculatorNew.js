@@ -87,6 +87,16 @@ export default function Calculator(props, ref) {
         setState(prevState => ({ ...prevState, usedCards: usedCards + 1 }))
     }
 
+    const handleEnergyPlusCardMinus = () => {
+        if (cards > 0) {
+            setState(prevState => ({ ...prevState, cards: cards - 1 }))
+        }
+        if (energy > 0) {
+            setState(prevState => ({ ...prevState, energy: energy + 1 }))
+        }
+        setState(prevState => ({ ...prevState, usedCards: usedCards + 1 }))
+    }
+
     const handleNextRound = () => {
         if (energy < 10) {
             if (energy === 9) {
@@ -311,7 +321,7 @@ export default function Calculator(props, ref) {
                                 <h3 className="text-warning">Opciones de Energias y Cartas</h3>
                                 <div className="d-flex justify-content-between mt-2">
                                     <button className="btn btn-large-card-energy" onClick={handleEnergyAndCardMinus}>- 1 <img src={energyIcon} alt="energy-icon" />/ -1 <img src={cardIcon} alt="card-icon" /></button>
-                                    <button className="btn btn-large-card-energy" onClick={handleEnergyAndCardMinus}>+ 1 <img src={energyIcon} alt="energy-icon" />/ -1 <img src={cardIcon} alt="card-icon" /></button>
+                                    <button className="btn btn-large-card-energy" onClick={handleEnergyPlusCardMinus}>+ 1 <img src={energyIcon} alt="energy-icon" />/ -1 <img src={cardIcon} alt="card-icon" /></button>
                                 </div>
                             </div>
                             <div className="card-body-content" style={styleAdvance}>
