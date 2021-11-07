@@ -1,5 +1,3 @@
-import React, { useState, useEffect, useRef } from 'react';
-
 import './Navigation.css';
 import AppLogo from '../static/icons/axie_calculator_logo.png'
 

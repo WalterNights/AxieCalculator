@@ -7,7 +7,7 @@ import cardIcon from '../static/icons/card_icon.png'
 import deckIcon from '../static/icons/deck_icon.png'
 import usedCard from '../static/icons/used_cards.png'
 
-export default function Calculator(props, ref) {
+export default function Calculator() {
 
     const initialState = {
         round: 1,
@@ -39,8 +39,8 @@ export default function Calculator(props, ref) {
 
     const [style, setStyle] = useState({ display: 'none' });
     const [styleAdvance, setStyleAdvance] = useState({ display: 'none' });
+    const [styleBackground, setStyleBackground] = useState({ backgroundColor: 'wheat' });
     const [infoText, setInfoText] = useState();
-    const [buttonText, setButtonText] = useState('Calculadora Simple');
 
     const infoTextChangeAdvance = 'Presiona para ir a la version avanzada de la calculadora';
     const infoTextChangeSimple = 'Presiona para ir a la version simple de la calculadora';
@@ -196,14 +196,13 @@ export default function Calculator(props, ref) {
         }
     }, [lose, win])
 
-    const handleChangeCalculator = (ref) => {
-        if (styleAdvance.display === 'flex') {
+    const handleChangeCalculatorSimple = () => {
             setStyleAdvance({ display: 'none' })
-            setButtonText('Calculadora Simple')
-        } else {
+    }
+    
+    const handleChangeCalculatorAdvance = () => {
             setStyleAdvance({ display: 'flex' })
-            setButtonText('Calculadora Avanzada')
-        }
+        
     }
 
     return (
@@ -218,19 +217,26 @@ export default function Calculator(props, ref) {
                     <div className="card">
                         <div className="calculator-button-advance">
                             <button
-                                className="col-12"
-                                onClick={handleChangeCalculator}
+                                className="col-5 change-simpe"
+                                style={styleBackground}
+                                onClick={handleChangeCalculatorSimple}
                                 onMouseEnter={e => {
                                     setStyle({ display: 'block' })
-                                    if(styleAdvance.display === 'none'){
-                                        setInfoText(infoTextChangeAdvance)
-                                    }
-                                    if(styleAdvance.display === 'flex'){
-                                        setInfoText(infoTextChangeSimple)
-                                    }
+                                    setInfoText(infoTextChangeSimple)
                                 }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
                             >
-                                {buttonText}
+                                Calculator Simple
+                            </button>
+                            <button
+                                className="col-5 change-advance"
+                                style={styleBackground}
+                                onClick={handleChangeCalculatorAdvance}
+                                onMouseEnter={e => {
+                                    setStyle({ display: 'block' })
+                                    setInfoText(infoTextChangeAdvance)
+                                }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                            >
+                                Calculadora Avanzada
                             </button>
                         </div>
                         <div className="card-header">
@@ -248,7 +254,7 @@ export default function Calculator(props, ref) {
                                     </button>
                                     Ronda &nbsp;<span className="text-warning">{round}</span>&nbsp;-&nbsp;
                                     Energia &nbsp;<img src={energyIcon} alt="energy-icon" />&nbsp;<span className="text-warning">{energy}/10</span>&nbsp;
-                                    <span clasName="flex-row" style={styleAdvance}>
+                                    <span style={styleAdvance}>
                                         - Cartas &nbsp;<img src={cardIcon} alt="card-icon" />&nbsp;<span className="text-warning">{cards}</span>
                                     </span>
                                 </h3>

@@ -40,13 +40,19 @@
     cursor: default;
 }
 
+.calculator-button-advance button{
+    position: absolute;
+    top: -5vw;
+}
+
 .calculator-button-advance button,
 .calculator-section .card-body button,
 .calculator-section .card-footer{
     font-family: 'Roboto Slab', serif;
 }
 
-.calculator-button-advance button,
+.calculator-button-advance button{color: #462D17;}
+
 .calculator-section .card-body button,
 .calculator-section .card-footer button{
     color: #462D17;
@@ -57,8 +63,12 @@
 
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
+    .change-simpe{left: 0vw;}
+
+    .change-advance{left: 40vw;}
+
     .text-dexcription{
-        height: 10vw;
+        height: 15vw;
         margin-bottom: 1%;
     }
 
@@ -115,7 +125,7 @@
 }
 @media (min-width: 500px) {
     .text-dexcription{
-        height: 10vw;
+        height: 15vw;
         margin-bottom: 1%;
     }
 
