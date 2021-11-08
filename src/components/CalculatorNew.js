@@ -141,7 +141,7 @@ export default function Calculator() {
             setState(prevState => ({ ...prevState, cards: cards - 2 }))
             setState(prevState => ({ ...prevState, deck: deck + 3 }))
         }
-        if (round === 2 && energy === 0) {
+        if (round === 2) {
             setState(prevState => ({ ...prevState, round: 1 }))
             setState(prevState => ({ ...prevState, energy: 3 }))
             setState(prevState => ({ ...prevState, cards: 6 }))
