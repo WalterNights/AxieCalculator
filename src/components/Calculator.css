@@ -40,7 +40,7 @@
     cursor: default;
 }
 
-.calculator-button-advance button{position: absolute;}
+/* .calculator-button-advance button{position: absolute;} */
 
 .calculator-button-advance button,
 .calculator-section .card-body button,
@@ -61,19 +61,19 @@
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
     .text-dexcription{
-        height: 15vw;
+        height: 6vw;
         margin-bottom: 1%;
     }
     
     .change-simpe{
-        top: -4.4vw;
-        left: 0vw;
+        /* top: -4.4vw;
+        left: 0vw; */
         font-size: 3vw;
     }
 
     .change-advance{
-        top: -4.4vw;
-        left: 40vw;
+        /* top: -4.4vw;
+        left: 40vw; */
         font-size: 3vw;
     }
 
@@ -88,7 +88,7 @@
     .text-dexcription span{font-size: 2.8vw;}
 
     .card-body-content,
-    .card-footer-content{height:20vw;}
+    .card-footer-content{height: 17.5vw;}
 
     .card-body-simple{height: 10vw !important}
 
@@ -130,11 +130,11 @@
 }
 @media (min-width: 500px) {
     .text-dexcription{
-        height: 15vw;
+        height: 6vw;
         margin-bottom: 1%;
     }
 
-    .change-simpe{
+    /* .change-simpe{
         top: -2.5vh;
         left: 0vw;
     }
@@ -142,7 +142,7 @@
     .change-advance{
         top: -2.5vh;
         left: 40vw;
-    }
+    } */
 
     .round-back{
         left: -2%;
@@ -153,7 +153,7 @@
     .text-dexcription span{font-size: 2.8vw;}
 
     .card-body-content,
-    .card-footer-content{height:20vw;}
+    .card-footer-content{height: 17.5vw;}
 
     .calculator-section .card-header h3{font-size: 3.7vw !important;}
     
@@ -193,16 +193,16 @@
 }
 @media (min-width: 768px) {
     .text-dexcription{
-        height: 10vw;
+        height: 4vw;
         margin-bottom: 1%;
     }
 
-    .change-simpe{top: -2.7vh;}
+    /* .change-simpe{top: -2.7vh;}
     
     .change-advance{
         top: -2.7vh;
         left: 27vw;
-    }
+    } */
 
     .round-back{
         width: 4vw !important;
@@ -212,7 +212,7 @@
     .text-dexcription span{font-size: 2.2vw;}
 
     .card-body-content,
-    .card-footer-content{height:15vw;}
+    .card-footer-content{height:12vw;}
 
     .calculator-section .card-header h3{font-size: 2.8vw !important;}
     
@@ -249,11 +249,11 @@
 }
 @media (min-width: 992px) {
     .text-dexcription{
-        height: 7vw;
+        height: 4vw;
         margin-bottom: 1%;
     }
     
-    .change-advance{left: 20vw;}
+    /* .change-advance{left: 20vw;} */
 
     .round-back{
         width: 3vw !important;
@@ -263,7 +263,7 @@
     .text-dexcription span{font-size: 2vw;}
 
     .card-body-content,
-    .card-footer-content{height:10vw;}
+    .card-footer-content{height: 8.5vw;}
 
     .calculator-section .card-header h3{font-size: 2.1vw !important;}
     
@@ -297,7 +297,7 @@
         margin-bottom: 1%;
     }
     
-    .change-advance{left: 16vw;}
+    /* .change-advance{left: 16vw;} */
 
     .round-back{
         width: 2.5vw !important;
@@ -349,11 +349,11 @@
 }
 @media (min-width: 1400px) {
     .text-dexcription{
-        height: 5vw;
+        height: 3.5vw;
         margin-top: -0.8%;
     }
 
-    .change-advance{left: 14.5vw;}
+    /* .change-advance{left: 14.5vw;} */
 
     .round-back{
         width: 2vw !important;
@@ -366,7 +366,7 @@
     }
 
     .card-body-content,
-    .card-footer-content{height:6vw;}
+    .card-footer-content{height:5.3vw;}
 
     .calculator-section .card-header h3{font-size: 1.3vw !important;}
 

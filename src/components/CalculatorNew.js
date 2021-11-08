@@ -218,31 +218,31 @@ export default function Calculator() {
             </section>
             <section className="calculator-container col-12 d-flex justify-content-evenly align-items-center">
                 <div className="calculator-section">
+                    <div className="calculator-button-advance d-flex justify-content-around">
+                        <button
+                            className="col-5 change-simpe"
+                            style={styleBackgroundS}
+                            onClick={handleChangeCalculatorSimple}
+                            onMouseEnter={e => {
+                                setStyle({ display: 'block' })
+                                setInfoText(infoTextChangeSimple)
+                            }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                        >
+                            Calculator Simple
+                        </button>
+                        <button
+                            className="col-5 change-advance"
+                            style={styleBackgroundA}
+                            onClick={handleChangeCalculatorAdvance}
+                            onMouseEnter={e => {
+                                setStyle({ display: 'block' })
+                                setInfoText(infoTextChangeAdvance)
+                            }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
+                        >
+                            Calculadora Avanzada
+                        </button>
+                    </div>
                     <div className="card">
-                        <div className="calculator-button-advance">
-                            <button
-                                className="col-5 change-simpe"
-                                style={styleBackgroundS}
-                                onClick={handleChangeCalculatorSimple}
-                                onMouseEnter={e => {
-                                    setStyle({ display: 'block' })
-                                    setInfoText(infoTextChangeSimple)
-                                }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
-                            >
-                                Calculator Simple
-                            </button>
-                            <button
-                                className="col-5 change-advance"
-                                style={styleBackgroundA}
-                                onClick={handleChangeCalculatorAdvance}
-                                onMouseEnter={e => {
-                                    setStyle({ display: 'block' })
-                                    setInfoText(infoTextChangeAdvance)
-                                }} onMouseLeave={e => { setStyle({ display: 'none' }) }}
-                            >
-                                Calculadora Avanzada
-                            </button>
-                        </div>
                         <div className="card-header">
                             <div className="calculator-header">
                                 <h3 className="d-flex justify-content-center align-items-center">
