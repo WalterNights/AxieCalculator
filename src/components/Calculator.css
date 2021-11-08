@@ -61,7 +61,7 @@
 /*======================= media_query =======================*/
 @media (max-width: 500px) {
     .text-dexcription{
-        height: 6vw;
+        height: 9vw;
         margin-bottom: 1%;
     }
     
