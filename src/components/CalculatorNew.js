@@ -92,7 +92,7 @@ export default function Calculator() {
         if (cards > 0) {
             setState(prevState => ({ ...prevState, cards: cards - 1 }))
         }
-        if (energy > 0) {
+        if (energy >= 0) {
             setState(prevState => ({ ...prevState, energy: energy + 1 }))
         }
         setState(prevState => ({ ...prevState, usedCards: usedCards + 1 }))
