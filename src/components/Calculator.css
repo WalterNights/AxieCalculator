@@ -44,6 +44,7 @@
 
 .calculator-button-advance button,
 .calculator-section .card-body button,
+.options-calculator button,
 .calculator-section .card-footer{
     font-family: 'Roboto Slab', serif;
 }
@@ -51,7 +52,8 @@
 .calculator-button-advance button{color: #462D17;}
 
 .calculator-section .card-body button,
-.calculator-section .card-footer button{
+.calculator-section .card-footer button,
+.options-calculator button{
     color: #462D17;
     background-color: wheat;
 }
