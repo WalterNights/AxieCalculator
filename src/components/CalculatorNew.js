@@ -11,12 +11,23 @@ import usedCard from '../static/icons/used_cards.png'
 
 export default function Calculator() {
     //========================================== USE STATE SCRIPTS ===============================================/
-    
-    for(var x of database){
-        console.log(x.aquatic.tail)
-    }
 
-    console.log(database)
+    var acuaTail = []
+    var acuaMouth = []
+    var cardName = ''
+
+    for (var x of database) {
+        acuaTail.push(x.aquatic.tail)
+        acuaMouth.push(x.aquatic.mouth)
+        cardName = acuaMouth[0].lam.nameCard
+    };
+
+    const elements = ['Boca', 'Cuerno', 'Espalda', 'Cola'];
+
+    var dropdownOptions = elements.map((value, index) => {
+        return <DropdownItem key={index}>{value}</DropdownItem>
+    })
+
     const initialState = {
         round: 1,
         energy: 3,
@@ -79,7 +90,11 @@ export default function Calculator() {
     const [styleBackgroundDD, setStyleBackgroundDD] = useState({ backgroundColor: 'wheat' });
     const [infoText, setInfoText] = useState();
 
-    const [finalDamage, setFinalDamage] = useState(0)
+    const [finalDamage, setFinalDamage] = useState(0);
+
+    const [dropdownType, setDropdownType] = useState(false);
+    const [dropdownPart, setDropdownPart] = useState(false);
+    const [dropdownCard, setDropdownCard] = useState(false);
 
     const infoTextChangeSimple = 'Presiona para ir a la version simple de la calculadora';
     const infoTextChangeAdvance = 'Presiona para ir a la version avanzada de la calculadora';
@@ -89,7 +104,7 @@ export default function Calculator() {
     const infoTextDefeat = 'Calcula tu indice de derrotas y reinica los valores de rondas y energia';
     const infoTextDraw = 'Suma los empates y reinicia los valores de ronda y energia';
     const infoTextBackRound = 'Devuelve una ronda y resta 2 de energia';
-    
+
     //========================================== USE STATE SCRIPTS ===============================================/
 
     const handleEnergyMinus = () => {
@@ -277,8 +292,18 @@ export default function Calculator() {
         setStyleBackgroundDD({ backgroundColor: '#a59577' });
     };
 
+    const dropdownTypes = () => {
+        setDropdownType(!dropdownType);
+    };
+    const dropdownParts = () => {
+        setDropdownPart(!dropdownPart);
+    };
+    const dropdownCards = () => {
+        setDropdownCard(!dropdownCard);
+    };
+
     //========================================== USE EFFEC SCRIPTS ===============================================/
-    
+
     useEffect(() => {
         const totalPercentage = (win / (win + lose) * 100).toFixed(1)
         const setPercentage = () => setState(prevState => ({ ...prevState, percentage: totalPercentage }));
@@ -290,7 +315,6 @@ export default function Calculator() {
     useEffect(() => {
         const totalDamage = Math.round(cardDamage * bonusAxie * strengthWeakness * conditionCard * bonusCritic + bonusSkill);
         const setFinalDmage = () => setFinalDamage(totalDamage);
-        console.log(totalDamage)
         setFinalDmage();
     }, [skill, cardDamage, bonusAxie, strengthWeakness, conditionCard, bonusCritic, bonusSkill]);
 
@@ -389,18 +413,34 @@ export default function Calculator() {
                                         Nueva Partida
                                     </button>
                                 </div>
-                                <Dropdown>
-                                    <DropdownToggle>
-                                        Ejemplo
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem>
-                                            holi
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </Dropdown>
-                                <div className="options-damage-value justify-content-center" style={styleDamage}>
-                                    <span className="text-white">Daño: {finalDamage}</span>
+                                <div className="options-damage-options justify-content-around align-items-center" style={styleDamage}>
+                                    <Dropdown isOpen={dropdownType} toggle={dropdownTypes} direction="down" size="lg">
+                                        <DropdownToggle caret>
+                                            Tipos
+                                        </DropdownToggle>
+                                        <DropdownMenu>
+                                            <DropdownItem divider/>
+                                            {dropdownOptions}
+                                        </DropdownMenu>
+                                    </Dropdown>
+                                    <Dropdown isOpen={dropdownPart} toggle={dropdownParts} direction="down" size="lg">
+                                        <DropdownToggle caret>
+                                            Partes
+                                        </DropdownToggle>
+                                        <DropdownMenu>
+                                            <DropdownItem divider/>
+                                            {dropdownOptions}
+                                        </DropdownMenu>
+                                    </Dropdown>
+                                    <Dropdown isOpen={dropdownCard} toggle={dropdownCards} direction="down" size="lg">
+                                        <DropdownToggle caret>
+                                            Cartas
+                                        </DropdownToggle>
+                                        <DropdownMenu>
+                                            <DropdownItem divider/>
+                                            {dropdownOptions}
+                                        </DropdownMenu>
+                                    </Dropdown>
                                 </div>
                             </div>
                             <div className="card-body-content" style={styleAdvance}>
@@ -445,6 +485,9 @@ export default function Calculator() {
                                         <button className="btn" onClick={handleEnergyPlus}>+ 1 <img src={energyIcon} alt="energy-icon" /></button>
                                         <button className="btn" onClick={handleNextRound}>Siguiente Ronda</button>
                                     </div>
+                                </div>
+                                <div className="options-damage-value justify-content-around align-items-center" style={styleDamage}>
+                                    <span className="text-white">Carta: "{cardName}" - Daño: {finalDamage}</span>
                                 </div>
                             </div>
                             <div className="card-body-content" style={styleAdvance}>
