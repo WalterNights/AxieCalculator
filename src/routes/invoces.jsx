@@ -6,7 +6,27 @@ import React, { useState, useEffect } from 'react';
 
 import { getApiResponse } from "../services/services"
 
+import plantIcon from "../static/class-icons/plant_icon.png"
+import reptilIcon from "../static/class-icons/reptil_icon.png"
+import dusckIcon from "../static/class-icons/dusck_icon.png"
+import aquaIcon from "../static/class-icons/aquatic_icon.png"
+import birdIcon from "../static/class-icons/bird_icon.png"
+import dawnIcon from "../static/class-icons/dawn_icon.png"
+import insectIcon from "../static/class-icons/insect_icon.png"
+import beastIcon from "../static/class-icons/beast_icon.png"
+import mechaIcon from "../static/class-icons/mecha_icon.png"
+
+const damageOperation = [];
+const ability = [];
+
 export default function Invoices() {
+
+    var skill = 35;
+    var cardDamage = 0;
+    var bonusAxie = 1.1;
+    var strengthWeakness = 1.15;
+    var conditionCard = 0.94;
+    var bonusCritic = 1;
 
     const [apiData, setApiData] = useState('');
     const [comboDamage, setComboDamage] = useState(0);
@@ -18,6 +38,7 @@ export default function Invoices() {
     }, [apiData]);
 
     const apiDataBase = getDataBase();
+    const axieType = [];
     const axieParts = [];
     const axieCards = [];
     const db = {
@@ -33,6 +54,7 @@ export default function Invoices() {
     };
 
     for (const value of apiData) {
+        axieType.push(value.class)
         axieParts.push(value.parts);
     };
 
@@ -44,7 +66,12 @@ export default function Invoices() {
             axie.push(values.name);
         }
         axieCards.push(axie);
+        //console.log(axieCards[0], axieType)
     };
+
+    for( const value of axieCards){
+        console.log(value[0])
+    }
 
     for (const elem of apiDataBase) {
         // eslint-disable-next-line no-unused-vars
@@ -68,18 +95,22 @@ export default function Invoices() {
     };
     //console.log(db)
 
-    const damageOperation = [];
-
-     const handleAbilities = (e) => {
-        const damage = e.target.value
-        damageOperation.push(damage);
-        const sumDamage = damageOperation.map(sum => {return /^\d+$/.test(sum) ? parseInt(sum): 0;}).reduce((a, b) => {return a+b});
-        setComboDamage(sumDamage);
-        console.log("damageOperation", damageOperation);
-        console.log("sumDamage", sumDamage);
-        console.log("comboDamage", comboDamage);
+    const handleAbilities = (e) => {
+        if (damageOperation.length <= 9) {
+            const damage = e.target.value
+            cardDamage = damage;
+            const bonusSkill = (cardDamage * skill) / 500
+            const totalDamage = Math.round(cardDamage * bonusAxie * strengthWeakness * conditionCard * bonusCritic + bonusSkill);
+            console.log(cardDamage)
+            const abilityInfo = e.target.name + ": " + totalDamage
+            damageOperation.push(totalDamage);
+            ability.push(abilityInfo)
+            console.log(ability)
+            const sumDamage = damageOperation.map(sum => { return /^\d+$/.test(sum) ? parseInt(sum) : 0; }).reduce((a, b) => { return a + b });
+            setComboDamage(sumDamage);
+            console.log("damageOperation", damageOperation);
+        }
     }
-
 
     const listParts = Object.values(apiData).map((parts, key) =>
         <li key={key} className="mt-5">
@@ -87,6 +118,7 @@ export default function Invoices() {
                 <span className="text-white">#{parts.id}</span>
             </div>
             <img src={parts.image} style={{ height: "10vw" }} alt="axie_image" />
+            {Object.values(parts.class)}
         </li>
     );
 
@@ -98,7 +130,13 @@ export default function Invoices() {
                         <li key={key}>
                             {Object.values(value).map((card, id) => {
                                 return (
-                                    <button key={id} className="" value={card.damage} style={{ background: "wheat", color: "#462D17", width: "10vw" }} onClick={handleAbilities}>
+                                    <button
+                                        key={id}
+                                        name={Object.keys(value)}
+                                        value={card.damage}
+                                        style={{ background: "wheat", color: "#462D17", width: "10vw" }}
+                                        onClick={handleAbilities}
+                                    >
                                         {Object.keys(value)}: {card.damage}
                                     </button>
                                 )
@@ -107,6 +145,14 @@ export default function Invoices() {
                     )
                 })}
             </ul>
+        );
+    });
+
+    const listAbilities = Object.values(ability).map((value, key) => {
+        return (
+            <li className="text-white" key={key}>
+                {value}
+            </li>
         );
     });
 
@@ -120,12 +166,48 @@ export default function Invoices() {
                     <ul className="col-10 d-flex justify-content-evenly mx-auto" style={{ padding: 0 }}>
                         {listParts}
                     </ul>
-                    <ul className="col-11 d-flex justify-content-evenly mx-auto" style={{ padding: 0 }}>
+                </div>
+                <div>
+                    <div className="col-10 d-flex justify-content-evenly mx-auto mb-4">
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={plantIcon} alt="aqua_icon" style={{ height: "1.5vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={reptilIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={dusckIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={aquaIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={birdIcon} alt="aqua_icon" style={{ height: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={dawnIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={insectIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={beastIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                        <button style={{ background: "none", border: "none" }}>
+                            <img src={mechaIcon} alt="aqua_icon" style={{ width: "2vw" }} />
+                        </button>
+                    </div>
+                    <ul className="col-10 d-flex justify-content-evenly mx-auto" style={{ padding: 0 }}>
                         {listCards}
                     </ul>
                 </div>
                 <div className="col-10 d-flex justify-content-center mx-auto">
-                    <input type="number" className="col-12" value={comboDamage} readOnly/>
+                    <input type="number" className="col-12" value={comboDamage} readOnly />
+                </div>
+                <div className="col-10 mx-auto">
+                    <ul className="col-11 d-flex flex-column justify-content-evenly align-item-center mx-auto" style={{ padding: 0 }}>
+                        {listAbilities}
+                    </ul>
                 </div>
             </section>
         </div>
