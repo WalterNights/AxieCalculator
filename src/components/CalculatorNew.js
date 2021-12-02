@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 import './Calculator.css';
-import database from '../database.json'
+//import { getDataBase } from '../database.js'
 
 import energyIcon from '../static/icons/energy.png'
 import cardIcon from '../static/icons/card_icon.png'
@@ -11,16 +11,6 @@ import usedCard from '../static/icons/used_cards.png'
 
 export default function Calculator() {
     //========================================== USE STATE SCRIPTS ===============================================/
-
-    var acuaTail = []
-    var acuaMouth = []
-    var cardName = ''
-
-    for (var x of database) {
-        acuaTail.push(x.aquatic.tail)
-        acuaMouth.push(x.aquatic.mouth)
-        cardName = acuaMouth[0].lam.nameCard
-    };
 
     const elements = ['Boca', 'Cuerno', 'Espalda', 'Cola'];
 
@@ -314,8 +304,8 @@ export default function Calculator() {
 
     useEffect(() => {
         const totalDamage = Math.round(cardDamage * bonusAxie * strengthWeakness * conditionCard * bonusCritic + bonusSkill);
-        const setFinalDmage = () => setFinalDamage(totalDamage);
-        setFinalDmage();
+        const setFinalDmg = () => setFinalDamage(totalDamage);
+        setFinalDmg();
     }, [skill, cardDamage, bonusAxie, strengthWeakness, conditionCard, bonusCritic, bonusSkill]);
 
     //========================================== USE EFFEC SCRIPTS ===============================================/
@@ -487,7 +477,7 @@ export default function Calculator() {
                                     </div>
                                 </div>
                                 <div className="options-damage-value justify-content-around align-items-center" style={styleDamage}>
-                                    <span className="text-white">Carta: "{cardName}" - Daño: {finalDamage}</span>
+                                    <span className="text-white">Carta: "{}" - Daño: {finalDamage}</span>
                                 </div>
                             </div>
                             <div className="card-body-content" style={styleAdvance}>
